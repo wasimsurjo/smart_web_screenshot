@@ -1,12 +1,26 @@
-# Info
+This package provides an easy-to-use tool for capturing screenshots of web pages. It supports custom user agents, proxies, and handles popups. 
+    Ideal for automated web scraping and testing purposes. 
 
-A smart web screenshot taker that is designed to bypass several issues commonly faced by scapers
+    **Features:**
+    - Custom user agents
+    - Proxy support
+    - Popup handling
+    - Screenshot capture with configurable screen dimensions
 
-from smart_screenshot import SmartWebScreenShot
+    **Installation:**
+    You can install this package using pip:
 
+        pip install smart-web-screenshot
 
-client = SmartWebScreenShot()
+    **Usage:**
+    Here’s a basic example of how to use the package:
 
-client.setup_driver()
+    ```python3
+    from smart_web_screenshot import SmartWebScreenshot
 
-client.take_screenshot("https://www.google.com")
+    screenshotter = SmartWebScreenshot()
+    screenshotter.setup_driver(headless=True)
+    screenshotter.take_screenshot('https://google.com')
+    screenshotter.close_driver()
+    
+    For more details, please refer to the documentation or GitHub repository. 

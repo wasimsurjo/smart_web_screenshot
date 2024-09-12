@@ -1,4 +1,5 @@
 README.md
+pyproject.toml
 setup.py
 smart_web_screenshot/__init__.py
 smart_web_screenshot/smart_screenshot.py
