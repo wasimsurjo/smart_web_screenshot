@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: smart-web-screenshot
-Version: 1.2.0
+Version: 1.2.2
 Summary: A smart web screenshot taker that is designed to bypass several issues commonly faced by scapers
 Home-page: https://github.com/wasimsurjo/smart_web_screenshot
 Author: Wasim Surjo
@@ -31,9 +31,9 @@ Description-Content-Type: text/markdown
         Here’s a basic example of how to use the package:
 
         ```python3
-        from smart_web_screenshot import SmartWebScreenshot
+        from smart_web_screenshot import SmartWebScreenShot
 
-        screenshotter = SmartWebScreenshot()
+        screenshotter = SmartWebScreenShot()
         screenshotter.setup_driver(headless=True)
         screenshotter.take_screenshot('https://google.com')
         screenshotter.close_driver()

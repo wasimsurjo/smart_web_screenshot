@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="smart_web_screenshot",
-    version="1.2.0",
+    version="1.2.2",
     packages=find_packages(),
     install_requires=["selenium", "undetected-chromedriver", "requests","webdriver-manager","selenium_stealth"],
     author="Wasim Surjo",
@@ -27,9 +27,9 @@ setup(
         Here’s a basic example of how to use the package:
 
         ```python3
-        from smart_web_screenshot import SmartWebScreenshot
+        from smart_web_screenshot import SmartWebScreenShot
 
-        screenshotter = SmartWebScreenshot()
+        screenshotter = SmartWebScreenShot()
         screenshotter.setup_driver(headless=True)
         screenshotter.take_screenshot('https://google.com')
         screenshotter.close_driver()

@@ -1,1 +1,1 @@
-from smart_web_screenshot.smart_screenshot import SmartWebScreenShot
+from .smart_screenshot import SmartWebScreenShot
