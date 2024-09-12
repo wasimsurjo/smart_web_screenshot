@@ -1,4 +1,9 @@
-    This package provides an easy-to-use tool for capturing screenshots of web pages. It supports custom user agents, proxies, and handles popups. 
+NOTE : Highly Recommended That you Update your browser and libraries especially if you are in Linux for best experience 
+
+I'm working on packing everything up so that you don't have to. Will release 2.0.0 when that milestone is reached ان شاء الله 
+
+
+This package provides an easy-to-use tool for capturing screenshots of web pages. It supports custom user agents, proxies, and handles popups. 
     Ideal for automated web scraping and testing purposes. 
 
     **Features:**
