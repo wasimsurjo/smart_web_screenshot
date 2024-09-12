@@ -1,3 +1,5 @@
 requests
 selenium
+selenium_stealth
 undetected-chromedriver
+webdriver-manager

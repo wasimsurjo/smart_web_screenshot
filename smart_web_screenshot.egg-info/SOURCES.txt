@@ -2,6 +2,7 @@ README.md
 setup.py
 smart_web_screenshot/__init__.py
 smart_web_screenshot/smart_screenshot.py
+smart_web_screenshot/test.py
 smart_web_screenshot.egg-info/PKG-INFO
 smart_web_screenshot.egg-info/SOURCES.txt
 smart_web_screenshot.egg-info/dependency_links.txt
