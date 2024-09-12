@@ -5,11 +5,13 @@ import random
 import undetected_chromedriver as uc
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
-from webdriver_manager.chrome import ChromeDriverManager
+from urllib.parse import urlparse
+from selenium_stealth import stealth
+from selenium.webdriver.chrome.options import Options
 from urllib.parse import urlparse
 
 from selenium_stealth import stealth
-
+import undetected_chromedriver as uc
 
 class SmartWebScreenShot:
 
@@ -43,28 +45,38 @@ class SmartWebScreenShot:
         pass
 
     def setup_driver(self, headless=True):
-        options = uc.ChromeOptions()
+        chrome_options = Options()
+        
         if headless:
-            options.headless = True
-        options.add_argument(f"--window-size={self.screen_dimensions}")
-        options.add_argument("--no-sandbox")
-        options.add_argument(f"user-agent={self.user_agent}")
-        options.add_argument("--disable-blink-features=AutomationControlled")
+            chrome_options.add_argument("--headless")
+        chrome_options.add_argument("--no-sandbox")
+        chrome_options.add_argument("--disable-dev-shm-usage")
+        chrome_options.add_argument(f"user-agent={self.user_agent}")
+        chrome_options.add_argument("--disable-blink-features=AutomationControlled")
+        chrome_options.add_argument(f"--window-size={self.screen_dimensions}")
+        # chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"]) 
+        # chrome_options.add_experimental_option("useAutomationExtension", False) 
         
         if self.proxy:
-            options.add_argument(f"--proxy-server={self.proxy}")
+            chrome_options.add_argument(f"--proxy-server={self.proxy}")
         
-        self.driver = uc.Chrome(options=options)
+        chrome_options.add_argument("--disable-extensions")
+        chrome_options.add_argument("--profile-directory=Default")
+        chrome_options.add_argument("--disable-infobars")
+        chrome_options.add_argument("--disable-notifications")
+        chrome_options.add_argument("--disable-gpu")
+        
+        self.driver = uc.Chrome(options=chrome_options)
 
-        # Apply stealth mode to avoid detection
         stealth(self.driver,
-                languages=["en-US", "en"],
-                vendor="Google Inc.",
-                platform="Win32",
-                webgl_vendor="Intel Inc.",
-                renderer="Intel Iris OpenGL Engine",       
-                fix_hairline=False,
-                run_on_insecure_origins=False)
+        languages=["en-US", "en"],
+        vendor="Google Inc.",
+        platform="Win32",
+        webgl_vendor="Intel Inc.",
+        renderer="Intel Iris OpenGL Engine",       
+        fix_hairline= False,
+        run_on_insecure_origins=False,
+        )
 
     def close_popups(self):
         """Attempts to close popups that appear on the page."""
@@ -83,7 +95,7 @@ class SmartWebScreenShot:
             raise ValueError("Driver is not initialized. Call setup_driver() first.")
 
         self.driver.get(url)
-        self.close_popups()  # Try to close popups after loading the page
+        # self.close_popups()  # Try to close popups after loading the page
 
         name = self.get_domain_name(url)
         time.sleep(5)  # Wait for content to load
